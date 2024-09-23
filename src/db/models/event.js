@@ -22,7 +22,7 @@ const eventSchema = new Schema(
       type: String,
       required: true,
     },
-    participantList: {
+    participantsList: {
       type: Array,
     },
   },

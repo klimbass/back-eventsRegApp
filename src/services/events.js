@@ -27,7 +27,15 @@ export const addParticipantToEvent = async (eventId, user) => {
   }
   const event = await EventsCollection.findOneAndUpdate(
     { _id: eventId },
-    { $addToSet: { participantList: userInDB._id } },
+    {
+      $addToSet: {
+        participantsList: {
+          userId: userInDB._id,
+          userName: userInDB.name,
+          userEmail: userInDB.email,
+        },
+      },
+    },
     {
       new: true,
       includeResultMetadata: false,
