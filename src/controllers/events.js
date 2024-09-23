@@ -4,9 +4,12 @@ import {
   getAllEvents,
   getEventById,
 } from '../services/events.js';
+import { parsePaginationParam } from '../utils/parsePaginationParam.js';
 
 export const getEventsController = async (req, res) => {
-  const events = await getAllEvents();
+  const { page, perPage } = parsePaginationParam(req.query);
+
+  const events = await getAllEvents({ page, perPage });
   res.status(200).json({
     status: 200,
     message: 'Successfully found events!',
