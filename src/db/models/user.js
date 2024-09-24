@@ -10,12 +10,9 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    // date: {
-    //   type: Date,
-    //   required: true,
-    // },
+
     dateOfBirth: {
-      type: String,
+      type: Date,
       required: true,
     },
     eventSource: {
