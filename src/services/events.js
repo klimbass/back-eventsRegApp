@@ -1,3 +1,4 @@
+import seedDB from '../../seed.js';
 import { KEY_OF_EVENTS, SORT_ORDER } from '../constants/event-constants.js';
 import { EventsCollection } from '../db/models/event.js';
 import { UsersCollection } from '../db/models/user.js';
@@ -11,15 +12,26 @@ export const getAllEvents = async ({
 }) => {
   const limit = perPage;
   const skip = (page - 1) * perPage;
-  const eventsQuery = EventsCollection.find();
-  const eventsCount = await EventsCollection.find()
+  let eventsQuery = EventsCollection.find();
+  let eventsCount = await EventsCollection.find()
     .merge(eventsQuery)
     .countDocuments();
+
+  const totalPages = Math.ceil(eventsCount / perPage);
+  if (page >= totalPages - 1) {
+    seedDB(20);
+    eventsQuery = EventsCollection.find();
+    eventsCount = await EventsCollection.find()
+      .merge(eventsQuery)
+      .countDocuments();
+  }
+
   const events = await eventsQuery
     .skip(skip)
     .limit(limit)
     .sort({ [sortBy]: sortOrder })
     .exec();
+
   const paginationData = calculatePaginationData(eventsCount, perPage, page);
   return {
     data: events,

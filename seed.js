@@ -38,23 +38,29 @@ const generateEvents = (num) => {
       description: faker.lorem.sentences(2),
       date: faker.date.future().toISOString().split('T')[0],
       organizer: faker.company.name(),
-      participantsList: generateParticipants(Math.floor(Math.random() * 5) + 1),
+      participantsList: generateParticipants(
+        Math.floor(Math.random() * 25) + 1,
+      ),
     });
   }
   return events;
 };
 
-const seedDB = async () => {
+const seedDB = async (count) => {
   //   await EventsCollection.deleteMany({});
-  const events = generateEvents(50);
+  const events = generateEvents(count);
   await EventsCollection.insertMany(events);
+
   console.log('Database seeded with events');
 };
-seedDB()
-  .then(() => {
-    mongoose.connection.close();
-  })
-  .catch((err) => {
-    console.error('Seeding error:', err);
-    mongoose.connection.close();
-  });
+
+export default seedDB;
+
+// seedDB(50)
+//   .then(() => {
+//     mongoose.connection.close();
+//   })
+//   .catch((err) => {
+//     console.error('Seeding error:', err);
+//     mongoose.connection.close();
+//   });
