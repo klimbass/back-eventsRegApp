@@ -1,14 +1,14 @@
 import { Router } from 'express';
-import { ctrlWrapper } from '../utils/ctrlWrapper.js';
+import { ctrlWrapper } from '../../utils/ctrlWrapper.js';
 import {
   addParticipantEventController,
   createEventController,
   getEventByIdController,
   getEventsController,
-} from '../controllers/events.js';
-import { validateBody } from '../utils/validateBody.js';
-import { createEventSchema } from '../validation/event.js';
-import { createUserSchema } from '../validation/user.js';
+} from '../../controllers/events.js';
+import { validateBody } from '../../utils/validateBody.js';
+import { createEventSchema } from '../../validation/event.js';
+import { createUserSchema } from '../../validation/user.js';
 
 const eventsRouter = Router();
 
