@@ -236,9 +236,9 @@ This project is licensed under the MIT License - see LICENSE file for details.
 
 **Alex Klimov** - Full-Stack Developer
 
-https://img.shields.io/badge/%F0%9F%92%BC-LinkedIn-0A66C2(https://www.linkedin.com/in/oleksandr-klimov-developer/)
-https://img.shields.io/badge/%F0%9F%90%99-GitHub-181717(https://github.com/klimbass)
-https://img.shields.io/badge/%F0%9F%8C%90-Email-blue(oleksandr.klimov@web.de)oleksandr.klimov@web.de(oleksandr.klimov@web.de)
+[![LinkedIn](https://img.shields.io/badge/💼-LinkedIn-0A66C2)](https://www.linkedin.com/in/oleksandr-klimov-developer/)
+[![GitHub](https://img.shields.io/badge/🐙-GitHub-181717)](https://github.com/klimbass)
+[![Email](https://img.shields.io/badge/📧-Email-D14836)](mailto:oleksandr.klimov@web.de)[oleksandr.klimov@web.de](oleksandr.klimov@web.de)
 
 ## Acknowledgments
 
